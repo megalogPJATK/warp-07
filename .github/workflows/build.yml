@@ -26,4 +26,12 @@ jobs:
         - name: Setup .NET
           uses: actions/setup-dotnet@v4
           with:
-           dotnet-version: ${{ env.DOTNET_VERSION }}
+           dotnet-version: 10.0.x
+
+        - name: Restore dependencies
+          shell: bash
+          run: dotnet restore "Warp07.Demo"
+
+        - name: Build project
+          shell: bash
+          run: dotnet build "Warp07.Demo" --configuration Release --no-restore
