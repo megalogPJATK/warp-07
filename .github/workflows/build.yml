@@ -5,9 +5,13 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 env:
   DOTNET_VERSION: 10.0.x
+  PROJECT_PATH: "Warp07.Demo"
 
 jobs:
   build:
@@ -29,16 +33,16 @@ jobs:
         - name: Setup .NET
           uses: actions/setup-dotnet@v4
           with:
-           dotnet-version: 10.0.x
+           dotnet-version: ${{ env. DOTNET_VERSION }}
 
         - name: Restore dependencies
           shell: bash
-          run: dotnet restore "Warp07.Demo"
+          run: dotnet restore "$PROJECT_PATH"
 
         - name: Build project
           shell: bash
-          run: dotnet build "Warp07.Demo" --configuration Release --no-restore
+          run: dotnet build "$PROJECT_PATH" --configuration Release --no-restore
 
         - name: Run project
           shell: bash
-          run: dotnet run --project "Warp07.Demo" --configuration Release --no-build
+          run: dotnet run --project "$PROJECT_PATH" --configuration Release --no-build
