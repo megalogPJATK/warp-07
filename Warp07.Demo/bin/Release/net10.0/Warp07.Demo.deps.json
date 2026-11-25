@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Warp07.Demo/1.0.0": {
+        "runtime": {
+          "Warp07.Demo.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Warp07.Demo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
